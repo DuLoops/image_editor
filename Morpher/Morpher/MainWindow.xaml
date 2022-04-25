@@ -1,0 +1,47 @@
+﻿<Window x:Class="Morpher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Morpher"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600" FontSize="20">
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button x:Name="btnMorph" Content="Start Morphing" Click="btnMorph_Click"/>
+                <Button x:Name="btnEdit" Content="Edit Mode" Click="btnEdit_Click"/>
+                <Button x:Name="btnJpeg" Content="Compress JPEG" Click="btnJpeg_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Border BorderBrush="Gray" BorderThickness="3" Margin="5">
+                <StackPanel Grid.Column="0" Margin="5">
+                    <Canvas x:Name="canvasL" MouseDown="mouseDownL" MouseMove="mouseMoveL" MouseUp="mouseUpL">
+                        <Image x:Name="imgL" Visibility="Hidden" MaxHeight="800" MaxWidth="700"></Image>
+                        <Label Name="imgLLabel"/>
+                    </Canvas>
+                    <Button VerticalAlignment="Center" HorizontalAlignment="Center" Name="btnLoadL" Content="Load Image" Click="btnLoadL_Click" />
+
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="Gray" BorderThickness="3" Margin="5" Grid.Column="1">
+                <StackPanel  Margin="5">
+                    <Canvas x:Name="canvasR"  MouseDown="mouseDownR" MouseMove="mouseMoveR" MouseUp="mouseUpR">
+                        <Image x:Name="imgR" Visibility="Hidden" MaxHeight="800" MaxWidth="700"></Image>
+                        <Label Name="imgRLabel"/>
+                    </Canvas>
+                    <Button VerticalAlignment="Center" HorizontalAlignment="Center" Name="btnLoadR" Content="Load Image" Click="btnLoadR_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        
+    </DockPanel>
+   
+</Window>
